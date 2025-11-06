@@ -1,0 +1,21 @@
+/* 1. Imports das Bibliotecas */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+@import 'yet-another-react-lightbox/styles.css';
+
+/* 2. Importa as Fontes do Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* 3. Diretivas do Tailwind v3 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 4. Estilos base (Maneira correta de fazer, sem conflito) */
+@layer base {
+  body {
+    @apply font-sans text-text-dark bg-white;
+  }
+}
