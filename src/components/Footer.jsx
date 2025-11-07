@@ -28,7 +28,7 @@ const Footer = () => {
               <FaWhatsapp size={28} />
             </a>
             <a
-              href="https://instagram.com/SEUINSTA" // ATUALIZE
+              href="https://www.instagram.com/marianarochaconcept?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" // ATUALIZE
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"

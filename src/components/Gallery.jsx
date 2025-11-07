@@ -22,8 +22,8 @@ const sliders = [
     title: 'Transformação de Cor (Loiro)',
   },
   {
-    before: '/antes-corte.jpg',
-    after: '/depois-corte.jpg',
+    before: '/img/antes2.png',
+    after: 'img/depois2.png',
     title: 'Corte e Reconstrução',
   },
   {

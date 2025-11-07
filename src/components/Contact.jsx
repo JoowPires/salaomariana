@@ -97,7 +97,7 @@ const Contact = () => {
                 Rua Exemplo, 123 - Bairro, São Paulo - SP
               </a>
               <a
-                href="https://instagram.com/SEUINSTA" // ATUALIZE
+                href="https://www.instagram.com/marianarochaconcept?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" // ATUALIZE
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-lg text-gray-700 hover:text-primary transition"
