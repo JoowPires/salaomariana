@@ -1,48 +1,69 @@
-import React, { useState } from 'react';
-import Lightbox from 'yet-another-react-lightbox';
+import React from 'react';
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
-const images = [
-  { src: 'img/fotodepois.png' },
-  { src: 'https://images.unsplash.com/photo-1596762391696-3c005b15b1e7?fit=crop&w=800&h=600' },
-  { src: 'https://images.unsplash.com/photo-1605371511215-585c5b96df69?fit=crop&w=800&h=600' },
-  { src: 'https://images.unsplash.com/photo-1580894432021-9d5f782c0c7a?fit=crop&w=800&h=600' },
-  { src: 'https://images.unsplash.com/photo-1597008122394-db6f3803f26c?fit=crop&w=800&h=600' },
-  { src: 'https://images.unsplash.com/photo-1616612185523-4856f6c91d84?fit=crop&w=800&h=600' },
+// ==========================================================
+// **SUA TAREFA**: Atualize esta lista com suas fotos
+// Coloque suas fotos na pasta `public/`
+// ==========================================================
+const sliders = [
+  {
+    before: '/img/antes1.png', // Ex: /public/antes-cabelo-loiro.jpg
+    after: '/img/depois1.png',  // Ex: /public/depois-cabelo-loiro.jpg
+    title: 'Transformação de Cor (Loiro)',
+  },
+  {
+    before: '/antes-corte.jpg', // Ex: /public/antes-corte.jpg
+    after: '/depois-corte.jpg',  // Ex: /public/depois-corte.jpg
+    title: 'Corte e Reconstrução',
+  },
+  {
+    before: '/antes-maquiagem.jpg', // Ex: /public/antes-maquiagem.jpg
+    after: '/depois-maquiagem.jpg',  // Ex: /public/depois-maquiagem.jpg
+    title: 'Maquiagem de Festa',
+  },
+  // Adicione quantos sliders "antes e depois" você quiser
 ];
 
-const Gallery = () => {
-  const [index, setIndex] = useState(-1);
 
+const Gallery = () => {
+  // Não precisamos mais do 'useState' nem do 'Lightbox'
+  
   return (
-    <section id="gallery" className="py-20 bg-white">
+    // Note que mudei o fundo para 'bg-white' para variar
+    // da seção de Serviços e dar mais destaque aos sliders.
+    <section id="gallery" className="py-20 bg-white"> 
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-dark mb-12">
-          Galeria de Clientes
+          Galeria (Antes e Depois)
         </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((image, i) => (
-            <div
-              key={i}
-              className="overflow-hidden rounded-lg shadow-lg cursor-pointer group"
-              onClick={() => setIndex(i)}
-            >
-              <img
-                src={image.src}
-                alt={`Trabalho ${i + 1}`}
-                className="w-full h-full object-cover aspect-square
-                           transition-transform duration-300 group-hover:scale-110"
-              />
+        
+        {/* Usamos um grid para mostrar os sliders.
+          Se você tiver 3 sliders, 'lg:grid-cols-3' fica ótimo.
+          Se tiver 2 ou 4, 'md:grid-cols-2' é melhor.
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          
+          {sliders.map((slider, index) => (
+            <div key={index}>
+              {/* O Componente do Slider */}
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <ReactCompareSlider
+                  // Força uma proporção quadrada.
+                  // Mude para 'aspect-[4/3]' se suas fotos forem retangulares.
+                  className="w-full aspect-square" 
+                  itemOne={<ReactCompareSliderImage src={slider.before} alt="Foto do Antes" />}
+                  itemTwo={<ReactCompareSliderImage src={slider.after} alt="Foto do Depois" />}
+                />
+              </div>
+              
+              {/* Título abaixo do slider */}
+              <h3 className="text-xl font-serif font-bold text-text-dark mt-6">
+                {slider.title}
+              </h3>
             </div>
           ))}
-        </div>
 
-        <Lightbox
-          open={index >= 0}
-          close={() => setIndex(-1)}
-          slides={images}
-          index={index}
-        />
+        </div>
       </div>
     </section>
   );
