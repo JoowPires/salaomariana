@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -10,7 +10,6 @@ module.exports = {
         'serif': ['Playfair Display', 'serif'],
         'sans': ['Montserrat', 'sans-serif'],
       },
-      // AS CORES ORIGINAIS (ROSÊ)
       colors: {
         'primary': '#B08B7E',
         'primary-dark': '#9A7061',
@@ -19,7 +18,5 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [],
 }
